@@ -3,7 +3,7 @@ package me.xii69.velocitystaffchat.data.database.registry;
 import com.moandjiezana.toml.Toml;
 import me.xii69.velocitystaffchat.VelocityStaffChat;
 import me.xii69.velocitystaffchat.data.database.Database;
-import me.xii69.velocitystaffchat.data.database.databases.RedisChatCache;
+import me.xii69.velocitystaffchat.data.database.databases.MySQLStorage;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +21,7 @@ public class DatabaseRegistry {
     }
 
     public CompletableFuture<Boolean> registerDefaults() {
-        return register("chat", DatabaseProvider.of(new RedisChatCache()));
+        return register("chat", DatabaseProvider.of(new MySQLStorage()));
     }
 
     public CompletableFuture<Boolean> register(String name, DatabaseProvider provider) {
